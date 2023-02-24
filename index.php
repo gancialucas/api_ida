@@ -30,7 +30,8 @@
 
     // CREAR UN NUEVO POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $input = $_POST;
+        $input = json_decode(file_get_contents('php://input'), true);
+
         $sql = "INSERT INTO usuarios
             (nombre, apellido, email, pass, rol)
             VALUES
@@ -60,7 +61,7 @@
 
     // ACTUALIZAR
     if ($_SERVER['REQUEST_METHOD'] == 'PUT') {
-        $input = $_GET;
+        $input = json_decode(file_get_contents('php://input'), true);
         $postId = $input['id'];
         $fields = getParams($input);
 
