@@ -51,7 +51,7 @@
     // BORRAR
     if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
         $id = $_GET['id'];
-        $statement = $db_connection->prepare("DELETE FROM usuarios where id=:id");
+        $statement = $db_connection->prepare("DELETE FROM usuarios WHERE id=:id");
         $statement->bindValue(':id', $id);
         $statement->execute();
         header("HTTP/1.1 200 OK");
