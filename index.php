@@ -3,6 +3,7 @@
     include "utilidades.php";
 
     $db_connection =  connect($db);
+    cors();
 
     /* LISTAR TODOS LOS usuarios O SOLO UNO */
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
