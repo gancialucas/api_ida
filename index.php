@@ -6,10 +6,10 @@
 
     /* LISTAR TODOS LOS usuarios O SOLO UNO */
     if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-        if (isset($_GET['id'])) {
+        if (isset($_GET['email'])) {
             // Mostrar un post
-            $sql = $db_connection->prepare("SELECT * FROM usuarios where id=:id");
-            $sql->bindValue(':id', $_GET['id']);
+            $sql = $db_connection->prepare("SELECT * FROM usuarios where email=:email");
+            $sql->bindValue(':email', $_GET['email']);
             $sql->execute();
 
             header("HTTP/1.1 200 OK");
